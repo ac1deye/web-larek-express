@@ -1,4 +1,4 @@
-import mongoose, { model, Schema } from "mongoose";
+import mongoose, { model, Schema } from 'mongoose';
 
 export interface IImageMeta {
   fileName: string;
@@ -27,7 +27,7 @@ const imageSchema = new mongoose.Schema<IImageMeta>(
   {
     _id: false,
     versionKey: false,
-  }
+  },
 );
 
 const productSchema = new Schema<IProduct>(
@@ -53,7 +53,7 @@ const productSchema = new Schema<IProduct>(
       default: null,
     },
   },
-  { versionKey: false }
+  { versionKey: false },
 );
 
-export default model<IProduct>("product", productSchema);
+export default model<IProduct>('product', productSchema);

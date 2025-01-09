@@ -1,4 +1,4 @@
-import { Segments, Joi, celebrate } from "celebrate";
+import { Segments, Joi, celebrate } from 'celebrate';
 
 const productSchema = Joi.object({
   title: Joi.string().min(2).max(30),
@@ -12,7 +12,7 @@ const productSchema = Joi.object({
 });
 
 const orderSchema = Joi.object({
-  payment: Joi.string().valid("card", "online"),
+  payment: Joi.string().valid('card', 'online'),
   email: Joi.string().required().email(),
   phone: Joi.string().required(),
   address: Joi.string().required(),

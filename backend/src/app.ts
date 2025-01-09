@@ -7,7 +7,7 @@ import "dotenv/config";
 
 import productsRouter from "./routes/product";
 import orderRouter from "./routes/order";
-import { errorHandler } from "./middlewares/errorHandler";
+import errorHandler from "./middlewares/errorHandler";
 import { requestLogger, errorLogger } from "./middlewares/logger";
 
 const { PORT, DB_ADDRESS } = process.env;
