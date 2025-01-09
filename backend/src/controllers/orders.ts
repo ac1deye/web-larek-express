@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { faker } from '@faker-js/faker';
 import Product, { IProduct } from '../models/product';
-import NotFoundError from '../errors/not-found-error';
 import BadRequestError from '../errors/bad-request-error';
 
 export default (
@@ -13,7 +12,7 @@ export default (
   Product.find({ _id: items })
     .then((documents) => {
       if (documents.length !== new Set(items).size) {
-        return Promise.reject(new NotFoundError('Товар не найден'));
+        return Promise.reject(new BadRequestError('Товар не найден'));
       }
 
       const notForSale: string[] = [];
@@ -40,8 +39,8 @@ export default (
       if (totalPrice !== total) {
         return Promise.reject(new BadRequestError('Ошибка цены товаров'));
       }
-      const orderId = faker.string.uuid();
-      return res.status(201).send({ _id: orderId, total });
+      const id = faker.string.uuid();
+      return res.send({ id, total });
     })
     .catch(next);
 };

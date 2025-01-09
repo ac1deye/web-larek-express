@@ -12,7 +12,7 @@ const productSchema = Joi.object({
 });
 
 const orderSchema = Joi.object({
-  payment: Joi.string().valid('card', 'online'),
+  payment: Joi.string().required().valid('card', 'online'),
   email: Joi.string().required().email(),
   phone: Joi.string().required(),
   address: Joi.string().required(),
